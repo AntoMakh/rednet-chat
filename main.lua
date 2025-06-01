@@ -3,7 +3,7 @@ local modemName = peripheral.getName(modem)
 
 rednet.open(modemName)
 
-if rednet.isOpen(modem) then
+if rednet.isOpen(modemName) then
     print("RedNet is working!")
 end
 

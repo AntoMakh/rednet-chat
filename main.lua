@@ -10,7 +10,7 @@ end
 write("Hello. Are you Harvek (1) or Chris_A_75 (2)?")
 local user = tonumber(read())
 
-while user ~= 1 or user ~= 2 do
+while user ~= 1 and user ~= 2 do
     write("Hello. Are you Harvek (1) or Chris_A_75 (2)?")
     local user = tonumber(read())
 end

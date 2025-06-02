@@ -35,7 +35,8 @@ local function sendLoop()
             rednet.close(modemName)
             break
         end
-        if msg ~= "" then -- this shouldnt allow empty messages from being sent
+        local spacelessMessage = string.gsub(msg, "%s", "") -- this removes all the whitespace characters from the message
+        if spacelessMessage ~= "" then -- this shouldnt allow empty messages from being sent
             local finalMsg = credentials .. msg
             rednet.send(receiverId, finalMsg, "MethLab")
         end

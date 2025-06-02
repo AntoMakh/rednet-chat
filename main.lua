@@ -43,7 +43,7 @@ local function receiveLoop()
     while true do
         local senderId, message, protocol = rednet.receive("MethLab")
         if senderId == receiverId then
-            print("\n".. message)
+            print(message)
             write("> ")
         end
     end

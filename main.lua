@@ -33,7 +33,7 @@ local function sendLoop()
             break
         end
         
-        local finalMsg = (receiverId == 7 and "<Harvek> " or "<Chris_A_75> ") .. msg
+        local finalMsg = (receiverId == 7 and "<Chris_A_75> " or "<Harvek_> ") .. msg
         rednet.send(receiverId, finalMsg, "MethLab")
         
     end

@@ -24,8 +24,11 @@ else
 end
 
 
+local credentials = (receiverId == 7 and "<Chris_A_75> " or "<Harvek_> ")
+
 local function sendLoop()
     while true do
+        print(credentials .. " ")
         local msg = read()
         
         if msg == "exit" then
@@ -44,7 +47,7 @@ local function receiveLoop()
         local senderId, message, protocol = rednet.receive("MethLab")
         if senderId == receiverId then
             print(message)
-            write("> ")
+            print()
         end
     end
 end

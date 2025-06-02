@@ -35,10 +35,10 @@ local function sendLoop()
             rednet.close(modemName)
             break
         end
-        
-        local finalMsg = credentials .. msg
-        rednet.send(receiverId, finalMsg, "MethLab")
-        
+        if msg ~= "" then -- this shouldnt allow empty messages from being sent
+            local finalMsg = credentials .. msg
+            rednet.send(receiverId, finalMsg, "MethLab")
+        end
     end
 end
 

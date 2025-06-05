@@ -7,20 +7,39 @@ if rednet.isOpen(modemName) then
     print("RedNet is working!")
 end
 
-write("Hello. Are you Harvek (1) or Chris_A_75 (2)?")
-local user = tonumber(read())
-
-while user ~= 1 and user ~= 2 do
-    write("Hello. Are you Harvek (1) or Chris_A_75 (2)?")
-    local user = tonumber(read())
+local user = ""
+local password = ""
+while user == "" or password == "" do
+    write("Enter username: ")
+    user = read()
+    write("Enter password: ")
+    password = read()
 end
+
+local serverID = 9       --change this depending on the server id
+
+local loginCredentials = {
+    username = user,
+    password = password
+}
+rednet.send(serverID, credentials, "auth")
+--sending the username and pass to the server
+
+local senderID, response, protocol = rednet.receive("auth")
+if senderID == serverID and response == "AUTH_OK" then
+    print("Login successful")
+else
+    print("Login failed")
+    return --end the program. You can change this to repeat the login prompt instead if you want
+end
+
 
 local receiverId
 
-if user == 1 then
-    receiverId = 8
-else
-    receiverId = 7
+if user == "antonio" then --this can be changed
+    receiverId = 8 --antonio
+else if user == "chris" then
+    receiverId = 7 --chris
 end
 
 

@@ -4,7 +4,7 @@ rednet.open(modemName)
 
 rednet.host("auth", "authServer")  
 local users = {
-    ["antonio"] = "",  --TBD
+    ["antonio"] = "methlabcorporation",
     ["chris"] = "shadowwizardmoneygang"
 }
 
@@ -19,3 +19,4 @@ while true do
     else 
          rednet.send(senderID, "AUTH_FAIL", "auth")
     end
+end

@@ -16,13 +16,13 @@ while user == "" or password == "" do
     password = read()
 end
 
-local serverID = 9       --change this depending on the server id
+local serverID = 12       --change this depending on the server id
 
 local loginCredentials = {
     username = user,
     password = password
 }
-rednet.send(serverID, credentials, "auth")
+rednet.send(serverID, loginCredentials, "auth")
 --sending the username and pass to the server
 
 local senderID, response, protocol = rednet.receive("auth")
@@ -34,12 +34,12 @@ else
 end
 
 
-local receiverId
+local receiverId -- who you are receiving from
 
 if user == "antonio" then --this can be changed
-    receiverId = 8 --antonio
+    receiverId = 8 -- sending to chris
 else if user == "chris" then
-    receiverId = 7 --chris
+    receiverId = 7 -- sending to antonio
 end
 
 

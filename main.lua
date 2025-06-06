@@ -38,7 +38,7 @@ local receiverId -- who you are receiving from
 
 if user == "antonio" then --this can be changed
     receiverId = 8 -- sending to chris
-else if user == "chris" then
+elseif user == "chris" then
     receiverId = 7 -- sending to antonio
 end
 
